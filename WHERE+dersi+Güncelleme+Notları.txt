@@ -1,0 +1,17 @@
+//Where Select İşlemi
+
+	$bilgilerimsor=$db->prepare("SELECT * from bilgilerim WHERE bilgilerim_yas=:bilgilerim_yas OR bilgilerim_ad=:bilgilerim_ad");
+	$bilgilerimsor->execute(
+		[
+	'bilgilerim_yas' => 32,
+	'bilgilerim_ad' => "Emrah"
+		]
+			
+	);
+
+	while($bilgilerimcek=$bilgilerimsor->fetch(PDO::FETCH_ASSOC)) {
+
+
+		echo $bilgilerimcek['bilgilerim_ad']; echo "<br>";
+
+		}
